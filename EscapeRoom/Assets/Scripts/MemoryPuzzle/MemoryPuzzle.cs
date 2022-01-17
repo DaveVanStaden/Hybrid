@@ -11,6 +11,7 @@ public class MemoryPuzzle : MonoBehaviour
     private Vector3 screenCenter;
     private int actorMask;
     private int highlightMask;
+    public GameManager gameManager;
     private void Awake()
     {
         screenCenter = new Vector3(Screen.width >> 1, Screen.height >> 1);
@@ -45,6 +46,7 @@ public class MemoryPuzzle : MonoBehaviour
         if(arrayLocation >= puzzleArray.Length)
         {
             arrayLocation = 0;
+            gameManager.AnimalButtonPuzzleWon = true;
             Debug.Log("win");
         }
            

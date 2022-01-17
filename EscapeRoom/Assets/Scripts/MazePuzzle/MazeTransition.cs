@@ -2,23 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonPuzzle : MonoBehaviour
+public class MazeTransition : MonoBehaviour
 {
     [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject currentTarget;
     private Vector3 screenCenter;
     private int actorMask;
     private int highlightMask;
-    private int puzzleSum;
-    private int totalUsedButtons;
-    public GameManager gameManager;
     private void Awake()
     {
         screenCenter = new Vector3(Screen.width >> 1, Screen.height >> 1);
         actorMask = LayerMask.NameToLayer("Actor");
         highlightMask = LayerMask.NameToLayer("Highlight");
     }
-
     void Update()
     {
         RaycastHit info;
@@ -29,25 +25,11 @@ public class ButtonPuzzle : MonoBehaviour
             {
                 if (target.gameObject.tag == "Interactible")
                 {
-                    var tempObject = target.GetComponent<ButtonID>();
-                    puzzleSum += tempObject.Value;
-                    totalUsedButtons += 1;
-                    print(puzzleSum);
+                    var tempObject = target.GetComponent<MazeButton>();
+                    tempObject.TransitionPlayerToMaze();
+                    Debug.Log("Transition");
                 }
             }
-        }
-
-        if(totalUsedButtons == 10 && puzzleSum == 34)
-        {
-            totalUsedButtons = 0;
-            puzzleSum = 0;
-            gameManager.LightButtonPuzzleWon = true;
-            Debug.Log("Win");
-        } else if (totalUsedButtons == 10 && puzzleSum != 34)
-        {
-            totalUsedButtons = 0;
-            puzzleSum = 0;
-            Debug.Log("Lose");
         }
     }
 }
