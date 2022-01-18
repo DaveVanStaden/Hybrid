@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public bool LightButtonPuzzleWon = false;
     public bool AnimalButtonPuzzleWon = false;
     public bool MazePuzzleWon = false;
+    public bool alreadyPlayed = false;
 
     public GameObject greenLight1;
     public GameObject greenLight2;
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject exitDoorTrigger;
 
     public Animator doorAnim;
+
+    public AudioSource doorSound;
 
     void Start()
     {
@@ -53,6 +56,13 @@ public class GameManager : MonoBehaviour
             //OPEN THE DOOOR
             exitDoorTrigger.SetActive(true);
             doorAnim.SetBool("DoorOpen", true);
-        }   
+
+            if (!alreadyPlayed)
+                {
+                    doorSound.Play();
+                    alreadyPlayed = true;
+                }
+        }
+
     }
 }

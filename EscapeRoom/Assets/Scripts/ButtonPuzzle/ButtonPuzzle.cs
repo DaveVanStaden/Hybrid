@@ -9,8 +9,8 @@ public class ButtonPuzzle : MonoBehaviour
     private Vector3 screenCenter;
     private int actorMask;
     private int highlightMask;
-    private int puzzleSum;
-    private int totalUsedButtons;
+    public int puzzleSum;
+    public int totalUsedButtons;
     private bool setWin = false;
 
     public GameManager gameManager;
@@ -35,8 +35,8 @@ public class ButtonPuzzle : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.R))
         {
-            totalUsedButtons = 0;
-            puzzleSum = 0;
+            //totalUsedButtons = 0;
+            //puzzleSum = 0;
         }
         RaycastHit info;
         if (Physics.Raycast(playerCamera.ScreenPointToRay(screenCenter), out info, 10000, LayerMask.GetMask("Actor", "Highlight")))
@@ -50,6 +50,15 @@ public class ButtonPuzzle : MonoBehaviour
                     puzzleSum += tempObject.Value;
                     totalUsedButtons += 1;
                     print(puzzleSum);
+                    buttonSound.Play();
+                }
+
+                if (target.gameObject.tag == "ResetButton")
+                {
+                    var tempObject = target.GetComponent<ButtonID>();
+                    puzzleSum += tempObject.Value;
+                    totalUsedButtons = 0;
+                    puzzleSum = 0;
                     buttonSound.Play();
                 }
             }

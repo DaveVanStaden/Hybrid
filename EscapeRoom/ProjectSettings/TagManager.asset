@@ -10,6 +10,7 @@ TagManager:
   - LedButtonCollider
   - KPKCollider
   - MazeCollider
+  - ResetButton
   layers:
   - Default
   - TransparentFX
