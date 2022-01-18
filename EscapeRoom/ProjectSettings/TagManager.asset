@@ -7,6 +7,9 @@ TagManager:
   - Interactible
   - MazeWall
   - WinWall
+  - LedButtonCollider
+  - KPKCollider
+  - MazeCollider
   layers:
   - Default
   - TransparentFX

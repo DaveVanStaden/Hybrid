@@ -11,7 +11,16 @@ public class ButtonPuzzle : MonoBehaviour
     private int highlightMask;
     private int puzzleSum;
     private int totalUsedButtons;
+    private bool setWin = false;
+
     public GameManager gameManager;
+
+    public Animator Green;
+    public Animator Blue;
+    public Animator Red;
+    public Animator Red2;
+    public Animator Yellow;
+
     private void Awake()
     {
         screenCenter = new Vector3(Screen.width >> 1, Screen.height >> 1);
@@ -41,6 +50,7 @@ public class ButtonPuzzle : MonoBehaviour
         {
             totalUsedButtons = 0;
             puzzleSum = 0;
+            setWin = true;
             gameManager.LightButtonPuzzleWon = true;
             Debug.Log("Win");
         } else if (totalUsedButtons == 10 && puzzleSum != 34)
@@ -49,5 +59,15 @@ public class ButtonPuzzle : MonoBehaviour
             puzzleSum = 0;
             Debug.Log("Lose");
         }
+        AnimMapping();
+    }
+
+    void AnimMapping()
+    {
+        Green.SetBool("ButtonPressed", setWin);
+        Blue.SetBool("ButtonPressed", setWin);
+        Red.SetBool("ButtonPressed", setWin);
+        Red2.SetBool("ButtonPressed", setWin);
+        Yellow.SetBool("ButtonPressed", setWin);
     }
 }

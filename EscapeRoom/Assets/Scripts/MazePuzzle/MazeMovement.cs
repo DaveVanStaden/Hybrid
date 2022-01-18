@@ -35,7 +35,7 @@ public class MazeMovement : MonoBehaviour
             cc.enabled = true;
             Debug.Log("Works");
         }
-        if(other.gameObject.tag == "WinWall")
+        if (other.gameObject.tag == "WinWall")
         {
             gameManager.MazePuzzleWon = true;
             mazeTransitioner.TransitionMazeToPlayer();
