@@ -21,6 +21,9 @@ public class ButtonPuzzle : MonoBehaviour
     public Animator Red2;
     public Animator Yellow;
 
+    public AudioSource buttonSound;
+    public AudioSource victorySound;
+
     private void Awake()
     {
         screenCenter = new Vector3(Screen.width >> 1, Screen.height >> 1);
@@ -47,6 +50,7 @@ public class ButtonPuzzle : MonoBehaviour
                     puzzleSum += tempObject.Value;
                     totalUsedButtons += 1;
                     print(puzzleSum);
+                    buttonSound.Play();
                 }
             }
         }
@@ -58,6 +62,7 @@ public class ButtonPuzzle : MonoBehaviour
             setWin = true;
             gameManager.LightButtonPuzzleWon = true;
             Debug.Log("Win");
+            victorySound.Play();
         } else if (totalUsedButtons == 10 && puzzleSum != 34)
         {
             totalUsedButtons = 0;

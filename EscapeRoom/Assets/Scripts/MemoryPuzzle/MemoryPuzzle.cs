@@ -12,6 +12,9 @@ public class MemoryPuzzle : MonoBehaviour
     private int actorMask;
     private int highlightMask;
     public GameManager gameManager;
+    public AudioSource buttonSound;
+    public AudioSource victorySound;
+
     private void Awake()
     {
         screenCenter = new Vector3(Screen.width >> 1, Screen.height >> 1);
@@ -38,11 +41,13 @@ public class MemoryPuzzle : MonoBehaviour
                     {
                         arrayLocation += 1;
                         Debug.Log("it works");
+                        buttonSound.Play();
                     }
                     else
                     {
                         Debug.Log("Wrong");
                         arrayLocation = 0;
+                        buttonSound.Play();
                     }
                 }
             }
@@ -52,6 +57,7 @@ public class MemoryPuzzle : MonoBehaviour
             arrayLocation = 0;
             gameManager.AnimalButtonPuzzleWon = true;
             Debug.Log("win");
+            victorySound.Play();
         }
            
     }

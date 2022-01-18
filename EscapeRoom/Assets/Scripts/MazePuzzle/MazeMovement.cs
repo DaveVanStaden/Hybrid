@@ -8,6 +8,7 @@ public class MazeMovement : MonoBehaviour
     public GameObject startPos;
     public GameManager gameManager;
     public MazeButton mazeTransitioner;
+    public AudioSource victorySound;
 
     public float speed = 12f;
     void Update()
@@ -46,6 +47,7 @@ public class MazeMovement : MonoBehaviour
         {
             gameManager.MazePuzzleWon = true;
             mazeTransitioner.TransitionMazeToPlayer();
+            victorySound.Play();
         }
     }
 }
