@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     public GameObject grayLight2;
     public GameObject grayLight3;
 
+    public GameObject exitDoorTrigger;
+
+    public Animator doorAnim;
+
     void Start()
     {
         LightButtonPuzzleWon = false;
@@ -47,6 +51,8 @@ public class GameManager : MonoBehaviour
         if (LightButtonPuzzleWon && AnimalButtonPuzzleWon && MazePuzzleWon)
         {
             //OPEN THE DOOOR
+            exitDoorTrigger.SetActive(true);
+            doorAnim.SetBool("DoorOpen", true);
         }   
     }
 }
