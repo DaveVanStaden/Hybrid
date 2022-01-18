@@ -30,6 +30,11 @@ public class ButtonPuzzle : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.R))
+        {
+            totalUsedButtons = 0;
+            puzzleSum = 0;
+        }
         RaycastHit info;
         if (Physics.Raycast(playerCamera.ScreenPointToRay(screenCenter), out info, 10000, LayerMask.GetMask("Actor", "Highlight")))
         {

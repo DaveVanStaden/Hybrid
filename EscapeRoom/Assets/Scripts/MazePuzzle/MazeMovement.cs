@@ -22,6 +22,13 @@ public class MazeMovement : MonoBehaviour
         {
             mazeTransitioner.TransitionMazeToPlayer();
         }
+        if (Input.GetKey(KeyCode.R))
+        {
+            CharacterController cc = GetComponent(typeof(CharacterController)) as CharacterController;
+            cc.enabled = false;
+            this.transform.position = startPos.transform.position;
+            cc.enabled = true;
+        }
     }
 
 
