@@ -1504,7 +1504,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29240
+  m_Name: pb_Mesh29284
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14613,7 +14613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a5b9f5d1dd0f2429074f6570ac4114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxTime: 4
+  MaxTime: 15
   wireCountdown: 15
   valveCountdown: 10
   gameManager: {fileID: 1268169478}
@@ -14694,7 +14694,7 @@ MonoBehaviour:
   valve2: 0
   valve3: 0
   valve4: 0
-  win: 0
+  win: 5
   reset: 0
   gameManager: {fileID: 1268169479}
   lightOff1: {fileID: 1188405056}

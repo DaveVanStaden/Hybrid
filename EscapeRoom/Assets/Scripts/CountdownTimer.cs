@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class CountdownTimer : MonoBehaviour
         else
         {
             timeValue = 0;
+            Application.Quit();
+            EditorApplication.isPlaying = false;
         }
         Displaytime(timeValue);
     }
