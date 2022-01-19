@@ -10,6 +10,8 @@ public class MiniGameTimer : MonoBehaviour
     public GameObject timerText;
     public GameObject gameManager;
 
+    public AudioSource errorSound;
+
     public bool isDone = true;
 
     public float failTimeRemove = 60;
@@ -30,10 +32,14 @@ public class MiniGameTimer : MonoBehaviour
         if (timeValue == 0 && !isDone)
         {
             timerText.GetComponent<CountdownTimer>().timeValue -= failTimeRemove;
-            
+
+            errorSound.Play();
+
             timeValue = gameManager.GetComponent<MiniGameManager>().wireCountdown;
 
             isDone = true;
+
+            StartCoroutine(ChangeColor());
         }
 
         Displaytime(timeValue);
@@ -61,5 +67,13 @@ public class MiniGameTimer : MonoBehaviour
             float miliseconds = timeToDisplay % 1 * 100;
             timeText.text = string.Format("{0:00}:{1:00}", seconds, miliseconds);
         }
+    }
+    IEnumerator ChangeColor()
+    {
+            timerText.GetComponent<Text>().color = Color.red;
+
+            yield return new WaitForSeconds(1);
+
+            timerText.GetComponent<Text>().color = Color.white;
     }
 }

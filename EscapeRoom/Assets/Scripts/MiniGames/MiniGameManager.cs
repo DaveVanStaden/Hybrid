@@ -8,15 +8,13 @@ public class MiniGameManager : MonoBehaviour
     private float timer;
     private int RandomEvent;
 
-    private float MaxTime2 = 12;
-    private float timer2;
-    private int RandomEvent2;
-
     public float wireCountdown = 10;
+    public float valveCountdown = 10;
 
     public GameObject gameManager;
     public GameObject countdownMinigame;
     public GameObject countdownMinigame2;
+    public GameObject countdownMinigameValve;
 
     void Start()
     {
@@ -26,15 +24,19 @@ public class MiniGameManager : MonoBehaviour
     void Update()
     {
         //WireMiniGame
-        if(gameManager.GetComponent<WireGame1>().win > 3 && gameManager.GetComponent<WireGame2>().win > 3)
+        if(gameManager.GetComponent<WireGame1>().win > 3 && gameManager.GetComponent<WireGame2>().win > 3 /*&& gameManager.GetComponent<ValveMiniGame>().win > 3*/)
         {
             countdownMinigame.GetComponent<MiniGameTimer>().timeValue = 0;
 
             countdownMinigame2.GetComponent<MiniGameTimer>().timeValue = 0;
 
+            //countdownMinigameValve.GetComponent<MiniGameTimer>().timeValue = 0;
+
             countdownMinigame.GetComponent<MiniGameTimer>().isDone = true;
 
             countdownMinigame2.GetComponent<MiniGameTimer>().isDone = true;
+
+            //countdownMinigameValve.GetComponent<MiniGameTimer>().isDone = true;
 
             timer += Time.deltaTime;
         }
@@ -53,30 +55,16 @@ public class MiniGameManager : MonoBehaviour
                     gameManager.GetComponent<WireGame2>().reset = true;
                     countdownMinigame2.GetComponent<MiniGameTimer>().timeValue = wireCountdown;
                     break;
+
+                /*case 2:
+                    gameManager.GetComponent<ValveMiniGame>().reset = true;
+                    countdownMinigameValve.GetComponent<MiniGameTimer>().timeValue = valveCountdown;
+                    break;*/
             }
             timer = 0;
         }
 
         //ValveMiniGame
-        timer2 += Time.deltaTime;
-        if(timer >= MaxTime2)
-        {
-            RandomEvent = Random.Range(0, 4);
-            switch (RandomEvent2)
-            {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                default:
-                    break;
-            }
-            timer2 = 0;
-        }
-
-
 
 
 

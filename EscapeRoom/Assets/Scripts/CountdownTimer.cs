@@ -17,8 +17,6 @@ public class CountdownTimer : MonoBehaviour
         else
         {
             timeValue = 0;
-
-            //END GAME HERE
         }
         Displaytime(timeValue);
     }
