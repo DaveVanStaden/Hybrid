@@ -14,6 +14,7 @@ public class MemoryPuzzle : MonoBehaviour
     public GameManager gameManager;
     public AudioSource buttonSound;
     public AudioSource victorySound;
+    public AudioSource errorSound;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class MemoryPuzzle : MonoBehaviour
                         Debug.Log("Wrong");
                         arrayLocation = 0;
                         buttonSound.Play();
+                        errorSound.Play();
                     }
                 }
             }

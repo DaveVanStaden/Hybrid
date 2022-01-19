@@ -23,6 +23,7 @@ public class ButtonPuzzle : MonoBehaviour
 
     public AudioSource buttonSound;
     public AudioSource victorySound;
+    public AudioSource errorSound;
 
     private void Awake()
     {
@@ -64,7 +65,7 @@ public class ButtonPuzzle : MonoBehaviour
             }
         }
 
-        if(totalUsedButtons == 10 && puzzleSum == 34)
+        if(totalUsedButtons == 11 && puzzleSum == 36)
         {
             totalUsedButtons = 0;
             puzzleSum = 0;
@@ -72,10 +73,11 @@ public class ButtonPuzzle : MonoBehaviour
             gameManager.LightButtonPuzzleWon = true;
             Debug.Log("Win");
             victorySound.Play();
-        } else if (totalUsedButtons == 10 && puzzleSum != 34)
+        } else if (totalUsedButtons == 11 && puzzleSum != 36)
         {
             totalUsedButtons = 0;
             puzzleSum = 0;
+            errorSound.Play();
             Debug.Log("Lose");
         }
         AnimMapping();

@@ -17,6 +17,15 @@ public class GameManager : MonoBehaviour
     public GameObject grayLight2;
     public GameObject grayLight3;
 
+    //LGHTS ABOVE PUZZLES
+    public GameObject greenLight4;
+    public GameObject grayLight4;
+    public GameObject greenLight5;
+    public GameObject grayLight5;
+    public GameObject greenLight6;
+    public GameObject grayLight6;
+
+
     public GameObject exitDoorTrigger;
 
     public Animator doorAnim;
@@ -37,18 +46,24 @@ public class GameManager : MonoBehaviour
         {
             grayLight1.SetActive(false);
             greenLight1.SetActive(true);
+            grayLight5.SetActive(false);
+            greenLight5.SetActive(true);
         }
 
         if (AnimalButtonPuzzleWon)
         {
             grayLight2.SetActive(false);
             greenLight2.SetActive(true);
+            grayLight4.SetActive(false);
+            greenLight4.SetActive(true);
         }
 
         if (MazePuzzleWon)
         {
             grayLight3.SetActive(false);
             greenLight3.SetActive(true);
+            grayLight6.SetActive(false);
+            greenLight6.SetActive(true);
         }
 
         if (LightButtonPuzzleWon && AnimalButtonPuzzleWon && MazePuzzleWon)

@@ -9,6 +9,7 @@ public class MazeMovement : MonoBehaviour
     public GameManager gameManager;
     public MazeButton mazeTransitioner;
     public AudioSource victorySound;
+    public AudioSource errorSound;
 
     public float speed = 12f;
     void Update()
@@ -42,6 +43,7 @@ public class MazeMovement : MonoBehaviour
             this.transform.position = startPos.transform.position;
             cc.enabled = true;
             Debug.Log("Works");
+            errorSound.Play();
         }
         if (other.gameObject.tag == "WinWall")
         {
