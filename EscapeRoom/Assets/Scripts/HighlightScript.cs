@@ -38,6 +38,15 @@ public class HighlightScript : MonoBehaviour
                     currentTarget.layer = highlightMask;
                 }
             }
+
+            if(target.gameObject.tag == "ValveButton")
+            {
+                if (currentTarget != target)
+                {
+                    currentTarget = target;
+                    currentTarget.layer = highlightMask;
+                }
+            }
         }
         else if(currentTarget != null)
         {

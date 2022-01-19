@@ -11,6 +11,7 @@ TagManager:
   - KPKCollider
   - MazeCollider
   - ResetButton
+  - ValveButton
   layers:
   - Default
   - TransparentFX

@@ -3,23 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CountdownTimer : MonoBehaviour
+public class MiniGameTimer : MonoBehaviour
 {
-    public float timeValue = 60;
-    public Text timeText;
+    public float timeValue = 0;
+    public TextMesh timeText;
+    public GameObject timerText;
+    public GameObject gameManager;
+
+    public bool isDone = true;
+
+    public float failTimeRemove = 60;
 
     void Update()
     {
         if(timeValue > 0)
         {
             timeValue -= Time.deltaTime;
+            isDone = false;
         }
         else
         {
             timeValue = 0;
 
-            //END GAME HERE
+            //REMOVE CERTAIN TIME
         }
+        if (timeValue == 0 && !isDone)
+        {
+            timerText.GetComponent<CountdownTimer>().timeValue -= failTimeRemove;
+            
+            timeValue = gameManager.GetComponent<MiniGameManager>().wireCountdown;
+
+            isDone = true;
+        }
+
         Displaytime(timeValue);
     }
 
