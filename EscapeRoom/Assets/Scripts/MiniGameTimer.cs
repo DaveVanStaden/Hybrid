@@ -13,6 +13,8 @@ public class MiniGameTimer : MonoBehaviour
     public AudioSource errorSound;
 
     public bool isDone = true;
+    public bool wireGame = false;
+    public bool valveGame = false;
 
     public float failTimeRemove = 60;
 
@@ -35,7 +37,14 @@ public class MiniGameTimer : MonoBehaviour
 
             errorSound.Play();
 
-            timeValue = gameManager.GetComponent<MiniGameManager>().wireCountdown;
+            if (valveGame)
+            {
+                timeValue = gameManager.GetComponent<MiniGameManager>().valveCountdown;
+            }
+            if (wireGame)
+            {
+                timeValue = gameManager.GetComponent<MiniGameManager>().wireCountdown;
+            }
 
             isDone = true;
 

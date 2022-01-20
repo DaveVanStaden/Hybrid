@@ -9,10 +9,10 @@ public class ValveMiniGame : MonoBehaviour
     private Vector3 screenCenter;
     private int actorMask;
     private int highlightMask;
-    public bool valve1 = true;
-    public bool valve2 = true;
-    public bool valve3 = true;
-    public bool valve4 = true;
+    private bool valve1 = true;
+    private bool valve2 = true;
+    private bool valve3 = true;
+    private bool valve4 = true;
     public int win = 5;
     public bool reset = false;
 
@@ -114,7 +114,6 @@ public class ValveMiniGame : MonoBehaviour
             win = 0;
             reset = false;
         }
-        
-     }
+    }
     
 }

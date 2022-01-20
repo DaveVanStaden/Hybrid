@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-using UnityEditor.SceneManagement;
 
 public class DoorCollider : MonoBehaviour
 {
@@ -22,7 +20,6 @@ public class DoorCollider : MonoBehaviour
             yield return new WaitForSeconds(5);
 
             Application.Quit();
-            EditorApplication.isPlaying = false;
     }
 
 }

@@ -24,26 +24,26 @@ public class MiniGameManager : MonoBehaviour
     void Update()
     {
         //WireMiniGame
-        if(gameManager.GetComponent<WireGame1>().win > 3 && gameManager.GetComponent<WireGame2>().win > 3 /*&& gameManager.GetComponent<ValveMiniGame>().win > 3*/)
+        if(gameManager.GetComponent<WireGame1>().win > 3 && gameManager.GetComponent<WireGame2>().win > 3 && gameManager.GetComponent<ValveMiniGame>().win > 3)
         {
             countdownMinigame.GetComponent<MiniGameTimer>().timeValue = 0;
-
             countdownMinigame2.GetComponent<MiniGameTimer>().timeValue = 0;
-
-            //countdownMinigameValve.GetComponent<MiniGameTimer>().timeValue = 0;
+            countdownMinigameValve.GetComponent<MiniGameTimer>().timeValue = 0;
 
             countdownMinigame.GetComponent<MiniGameTimer>().isDone = true;
-
             countdownMinigame2.GetComponent<MiniGameTimer>().isDone = true;
+            countdownMinigameValve.GetComponent<MiniGameTimer>().isDone = true;
 
-            //countdownMinigameValve.GetComponent<MiniGameTimer>().isDone = true;
+            countdownMinigame.GetComponent<MiniGameTimer>().wireGame = true;
+            countdownMinigame2.GetComponent<MiniGameTimer>().wireGame = true;
+            countdownMinigameValve.GetComponent<MiniGameTimer>().valveGame = true;
 
             timer += Time.deltaTime;
         }
 
         if(timer >= MaxTime)
         {
-            RandomEvent = Random.Range(0, 2);
+            RandomEvent = Random.Range(0, 3);
             switch (RandomEvent)
             {
                 case 0:
@@ -56,17 +56,17 @@ public class MiniGameManager : MonoBehaviour
                     countdownMinigame2.GetComponent<MiniGameTimer>().timeValue = wireCountdown;
                     break;
 
-                /*case 2:
+                case 2:
                     gameManager.GetComponent<ValveMiniGame>().reset = true;
                     countdownMinigameValve.GetComponent<MiniGameTimer>().timeValue = valveCountdown;
-                    break;*/
+                    break;
             }
             timer = 0;
         }
 
         //ValveMiniGame
 
-
+        //Debug.Log(gameManager.GetComponent<ValveMiniGame>().win);
 
     } 
 }
